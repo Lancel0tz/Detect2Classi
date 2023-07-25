@@ -67,19 +67,19 @@ def create_single_object_xml(original_xml_file, class_name, bbox, output_folder,
     tree.write(output_xml_file)
 
 # Example usage
-data_folder = 'C:/Users/14869\Desktop\innerUAV'
-output_folder = 'C:/Users/14869\Desktop/new'
+data_folder = 'path to JPG with XML(multi object) folder'
+output_folder = 'path to the folder you want to store JPG with XML(single object)'
 
 for filename in os.listdir(data_folder):
     file_path = os.path.join(data_folder, filename)
 
-    # 筛查只读取图片文件和同名的XML文件
+    # Screening reads only image files and XML files with the same name
     if not is_xml_file(file_path):
         continue
 
     image_file = os.path.join(data_folder, f"{os.path.splitext(filename)[0]}.jpg")
 
-    # 检查同名的图片文件是否存在
+    # Check if an image file with the same name exists
     if not os.path.isfile(image_file):
         continue
 
